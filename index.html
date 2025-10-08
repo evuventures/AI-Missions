@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Weekly Upgrade: Mastering the "Not Yet" Mindset</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #030712;
+            color: #d1d5db;
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #a78bfa, #c4b5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .mission-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .prompt-block {
+            background-color: #1f2937;
+            border: 1px solid #374151;
+            font-family: 'SF Mono', 'Courier New', Courier, monospace;
+        }
+        
+        .glow-sphere {
+            position: absolute;
+            border-radius: 9999px;
+            filter: blur(100px);
+            opacity: 0.2;
+            z-index: -10;
+        }
+
+        /* Page and Animation Handling */
+        .page-view {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-out;
+        }
+        .page-view.active {
+            display: block;
+            opacity: 1;
+        }
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+            opacity: 0;
+            animation: fade-in-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        
+        /* Graph Animation */
+        .graph-line { stroke-dasharray: 1000; stroke-dashoffset: 1000; animation: draw-line 2s ease-out forwards; }
+        @keyframes draw-line { to { stroke-dashoffset: 0; } }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Background Glows -->
+    <div class="absolute top-0 left-0 w-96 h-96 bg-violet-600 glow-sphere -translate-x-1/2 -translate-y-1/2"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-sky-600 glow-sphere translate-x-1/2 translate-y-1/2"></div>
+    <div class="absolute top-1/2 left-1/2 w-96 h-96 bg-red-600 glow-sphere -translate-x-1/2 -translate-y-1/2"></div>
+
+
+    <div class="relative min-h-screen px-6 py-24 sm:py-32 lg:px-8">
+        
+        <!-- ================================== -->
+        <!-- Main View (Hub Page)               -->
+        <!-- ================================== -->
+        <div id="main-view" class="page-view active">
+            <div class="mx-auto max-w-5xl text-center">
+                <div class="animate-fade-in-up">
+                    <p class="text-base font-semibold leading-7 text-violet-400">Your Bi-Weekly Upgrade</p>
+                    <h1 class="mt-2 text-4xl font-black tracking-tight text-white sm:text-6xl gradient-text">Mastering the "Not Yet" Mindset</h1>
+                    <p class="mt-6 text-lg leading-8 text-gray-400">Move from seeing AI as a simple tool to using it as a powerful collaborator for strategy, creation, and problem-solving.</p>
+                </div>
+
+                <div class="mt-24 p-8 border border-gray-800 rounded-xl animate-fade-in-up" style="animation-delay: 0.2s;">
+                    <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">The Core Idea: The Frontier is Always Moving</h2>
+                    <div class="mt-8 flex flex-col md:flex-row items-center justify-center gap-4 text-2xl font-bold">
+                        <span class="text-red-400 line-through">"AI can't do this."</span>
+                        <svg class="w-12 h-12 text-gray-600 transform md:rotate-0 rotate-90" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" /></svg>
+                        <span class="text-green-400">"AI can't do this... <span class="gradient-text">yet</span>."</span>
+                    </div>
+                </div>
+                
+                <div class="mt-24 text-left animate-fade-in-up" style="animation-delay: 0.3s;">
+                    <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl text-center">Why This Mindset Matters</h2>
+                    <p class="mt-4 text-lg text-gray-400 max-w-3xl mx-auto text-center">Our expectations for technology are linear, but AI progress is exponential. The gap between those two lines is where the advantage is found.</p>
+                    <div class="mt-12 p-8 bg-gray-900/50 border border-gray-700 rounded-xl">
+                        <svg class="w-full" viewBox="0 0 400 200">
+                            <text x="10" y="20" fill="#9ca3af" font-size="12">Capability</text>
+                            <text x="360" y="195" fill="#9ca3af" font-size="12">Time</text>
+                            <path d="M 50 180 C 150 180, 200 100, 350 20" stroke="#a78bfa" stroke-width="3" fill="none" class="graph-line" style="animation-delay: 0.5s;" />
+                            <text x="290" y="20" fill="#a78bfa" font-size="12" class="animate-fade-in-up" style="animation-delay: 2s;">AI Progress</text>
+                            <line x1="50" y1="180" x2="350" y2="100" stroke="#6b7280" stroke-width="2" stroke-dasharray="4" class="graph-line" style="animation-delay: 1s;"/>
+                            <text x="290" y="95" fill="#6b7280" font-size="12" class="animate-fade-in-up" style="animation-delay: 2.5s;">Human Expectation</text>
+                            <text x="220" y="80" fill="#fde047" font-size="14" font-weight="bold" class="animate-fade-in-up" style="animation-delay: 3s;">The Advantage Zone</text>
+                        </svg>
+                    </div>
+                     <p class="mt-8 text-gray-400 max-w-3xl mx-auto text-center">Your job is to be the first to notice when those limits disappear. This guide provides four missions. Choose **one** this week and spend 30 minutes on it.</p>
+                </div>
+
+                <h2 class="mt-24 text-3xl font-bold tracking-tight text-white sm:text-4xl text-center animate-fade-in-up" style="animation-delay: 0.4s;">Your Four Core Missions</h2>
+                <div class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2">
+                    <div data-target="strategist-view" class="mission-card glass-card rounded-2xl p-8 text-left animate-fade-in-up cursor-pointer" style="animation-delay: 0.5s;">
+                        <div class="flex items-center gap-4"><div class="bg-violet-900/50 p-3 rounded-lg border border-violet-700"><svg class="w-8 h-8 text-violet-300" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" /></svg></div><div><h3 class="text-2xl font-bold text-white">The Strategist</h3><p class="text-gray-400">For Everyone (Planning & Ideas)</p></div></div>
+                        <p class="mt-6 text-gray-400">Use AI as a strategic partner. Give it a role and context, just like you would brief a new team member. <span class="text-violet-400 font-bold">Learn more &rarr;</span></p>
+                    </div>
+                    <div data-target="prototyper-view" class="mission-card glass-card rounded-2xl p-8 text-left animate-fade-in-up cursor-pointer" style="animation-delay: 0.6s;">
+                        <div class="flex items-center gap-4"><div class="bg-violet-900/50 p-3 rounded-lg border border-violet-700"><svg class="w-8 h-8 text-violet-300" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" /></svg></div><div><h3 class="text-2xl font-bold text-white">The Prototyper</h3><p class="text-gray-400">For Builders (Coding & UI/UX)</p></div></div>
+                        <p class="mt-6 text-gray-400">Use AI to build live, interactive UI components without writing the initial code yourself. <span class="text-violet-400 font-bold">Learn more &rarr;</span></p>
+                    </div>
+                    <div data-target="scientist-view" class="mission-card glass-card rounded-2xl p-8 text-left animate-fade-in-up cursor-pointer" style="animation-delay: 0.7s;">
+                        <div class="flex items-center gap-4"><div class="bg-violet-900/50 p-3 rounded-lg border border-violet-700"><svg class="w-8 h-8 text-violet-300" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m_6.75 12_0_0_i_3_3m-3-3h.008v.008h-.008v-.008Z" /></svg></div><div><h3 class="text-2xl font-bold text-white">The Scientist</h3><p class="text-gray-400">For Experimenters & Problem Solvers</p></div></div>
+                        <p class="mt-6 text-gray-400">Test the absolute limits of a model's understanding with a task you previously thought was "impossible." <span class="text-violet-400 font-bold">Learn more &rarr;</span></p>
+                    </div>
+                    <div data-target="artist-view" class="mission-card glass-card rounded-2xl p-8 text-left animate-fade-in-up cursor-pointer" style="animation-delay: 0.8s;">
+                        <div class="flex items-center gap-4"><div class="bg-violet-900/50 p-3 rounded-lg border border-violet-700"><svg class="w-8 h-8 text-violet-300" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09Z" /></svg></div><div><h3 class="text-2xl font-bold text-white">The Artist</h3><p class="text-gray-400">For Creatives & Marketing Teams</p></div></div>
+                        <p class="mt-6 text-gray-400">Generate compelling visual assets that you can use for mockups, social media posts, or internal presentations. <span class="text-violet-400 font-bold">Learn more &rarr;</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================== -->
+        <!-- Strategist View (Detail Page)      -->
+        <!-- ================================== -->
+        <div id="strategist-view" class="page-view">
+            <div class="mx-auto max-w-5xl text-left">
+                <button class="back-btn mb-12 text-violet-400 font-bold">&larr; Back to All Missions</button>
+                <div class="flex items-center gap-4 animate-fade-in-up">
+                    <div class="bg-violet-900/50 p-3 rounded-lg border border-violet-700"><svg class="w-12 h-12 text-violet-300" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" /></svg></div>
+                    <h1 class="text-4xl font-black tracking-tight text-white sm:text-6xl">Mission: The Strategist</h1>
+                </div>
+                <p class="mt-6 text-lg leading-8 text-gray-400 animate-fade-in-up" style="animation-delay: 0.1s;">The goal is to move from using AI as a search engine to using it as a free, world-class consultant that is available 24/7. Your job is to brief it like an expert, not just ask it simple questions.</p>
+                
+                <div class="mt-16 space-y-12">
+                    <div class="animate-fade-in-up" style="animation-delay: 0.2s;">
+                        <h3 class="text-2xl font-bold text-white">Technique: Give it a Persona</h3>
+                        <p class="mt-2 text-gray-400">Always start your prompt with "Act as a...". This provides crucial context and dramatically improves the quality of the response.</p>
+                    </div>
+                    <div class="animate-fade-in-up" style="animation-delay: 0.3s;">
+                        <h3 class="text-2xl font-bold text-white">Example for <span class="gradient-text">SalesFam</span></h3>
+                        <div class="mt-4 p-4 rounded-lg prompt-block text-sm">
+                            <p class="text-gray-400">// Try this in <a href="https://gemini.google.com/" target="_blank" class="text-sky-400 underline">Google Gemini</a></p>
+                            <p class="mt-2 text-white">"Act as a VP of Sales for a fast-growing SaaS startup. Our product, **SalesFam**, is a commission tracking platform. I've uploaded our last quarter's sales data. Analyze the data and identify the top 3 biggest risks to us hitting our goals next quarter. Provide a brief, actionable mitigation plan for each risk."</p>
+                        </div>
+                    </div>
+                    <div class="animate-fade-in-up" style="animation-delay: 0.4s;">
+                        <h3 class="text-2xl font-bold text-white">Example for <span class="gradient-text">SuperWill</span></h3>
+                        <div class="mt-4 p-4 rounded-lg prompt-block text-sm">
+                            <p class="text-gray-400">// Try this in <a href="https://claude.ai/" target="_blank" class="text-sky-400 underline">Anthropic's Claude</a></p>
+                            <p class="mt-2 text-white">"Act as a digital marketing expert specializing in sensitive legal services. Our venture, **SuperWill**, is an automated legal will attorney. The target audience is young families who have never thought about a will. Create a content strategy outline for a blog designed to educate this audience without using fear-based tactics. Include 5 potential blog post titles."</p>
+                        </div>
+                    </div>
+                    <div class="animate-fade-in-up" style="animation-delay: 0.5s;">
+                        <h3 class="text-2xl font-bold text-white">Pro-Tip: Ask for Specific Formats</h3>
+                        <p class="mt-2 text-gray-400">End your prompt by telling the AI how to structure the output. This saves you time on reformatting. Try adding phrases like "Provide the output as a markdown table," or "Summarize the findings in three clear bullet points."</p>
+                    </div>
+                    <div class="animate-fade-in-up" style="animation-delay: 0.6s;">
+                        <h3 class="text-2xl font-bold text-white">Pro-Tip: Create a Dedicated "Project Brain"</h3>
+                        <p class="mt-2 text-gray-400">Don't start a new chat for every small question about the same project. Keep all your brainstorming, planning, and questions for a single venture (like **hyperbuds**) in one continuous Gemini chat. Over time, the AI will build a deep contextual understanding of your project, making its future answers smarter, faster, and more relevant. Think of it as training your own specialist consultant.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================== -->
+        <!-- Prototyper View (Detail Page)      -->
+        <!-- ================================== -->
+        <div id="prototyper-view" class="page-view">
+            <div class="mx-auto max-w-5xl text-left">
+                <button class="back-btn mb-12 text-violet-400 font-bold">&larr; Back to All Missions</button>
+                <div class="flex items-center gap-4 animate-fade-in-up">
+                    <div class="bg-violet-900/50 p-3 rounded-lg border border-violet-700"><svg class="w-12 h-12 text-violet-300" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" /></svg></div>
+                    <h1 class="text-4xl font-black tracking-tight text-white sm:text-6xl">Mission: The Prototyper</h1>
+                </div>
+                <p class="mt-6 text-lg leading-8 text-gray-400 animate-fade-in-up" style="animation-delay: 0.1s;">The goal is to move from "writing code" to "directing the creation of code." This crushes prototyping time from hours to minutes, allowing you to validate ideas instantly.</p>
+                
+                <div class="mt-16 space-y-12">
+                    <div class="animate-fade-in-up" style="animation-delay: 0.2s;">
+                        <h3 class="text-2xl font-bold text-white">Technique: Live Previews with Artifacts</h3>
+                        <p class="mt-2 text-gray-400">In Claude, when you ask for a UI component, it doesn't just give you code. It creates a live, interactive preview window called an "Artifact" that you can see and test immediately.</p>
+                    </div>
+                    <div class="animate-fade-in-up" style="animation-delay: 0.3s;">
+                        <h3 class="text-2xl font-bold text-white">Example for <span class="gradient-text">xKPI</span></h3>
+                        <div class="mt-4 p-4 rounded-lg prompt-block text-sm">
+                            <p class="text-gray-400">// Try this in <a href="https://claude.ai/" target="_blank" class="text-sky-400 underline">Anthropic's Claude</a></p>
+                            <p class="mt-2 text-white">"Create a simple, modern pricing dashboard for a B2B SaaS product called **xKPI**. It should have three tiers: Basic, Pro, and Enterprise. Use HTML and Tailwind CSS. Each tier should be a card showing the price, a key feature list, and a sign-up button. Make the 'Pro' tier the most visually prominent with a different color and a 'Most Popular' badge."</p>
+                        </div>
+                    </div>
+                    <div class="animate-fade-in-up" style="animation-delay: 0.4s;">
+                        <h3 class="text-2xl font-bold text-white">Example for <span class="gradient-text">Cyberly</span></h3>
+                        <div class="mt-4 p-4 rounded-lg prompt-block text-sm">
+                            <p class="text-gray-400">// Try this in <a href="https://claude.ai/" target="_blank" class="text-sky-400 underline">Anthropic's Claude</a></p>
+                            <p class="mt-2 text-white">"Build a UI for a live video streaming app called **Cyberly**. It should have a main video window, a vertical chat box on the right, and a 'Send Tip' button below the video. The layout should be clean and modern. Use HTML and Tailwind CSS."</p>
+                        </div>
+                    </div>
+                    <div class="animate-fade-in-up" style="animation-delay: 0.5s;">
+                        <h3 class="text-2xl font-bold text-white">Pro-Tip: Iterative Refinement</h3>
+                        <p class="mt-2 text-gray-400">The first result is just a draft. Treat the AI like a junior developer. Give it conversational feedback: "That's a good start, but make the buttons purple," or "Change the color scheme to a dark mode." Watch the Artifact update in real-time.</p>
+                    </div>
+                    <div class="animate-fade-in-up" style="animation-delay: 0.6s;">
+                        <h3 class="text-2xl font-bold text-white">Pro-Tip: Build in Components</h3>
+                        <p class="mt-2 text-gray-400">Don't ask for an entire complex webpage at once. Ask for individual components first (a navbar, a hero section, a feature grid). Once you're happy with each piece, ask the AI to combine them into a single, cohesive page.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================== -->
+        <!-- Scientist View (Detail Page)      -->
+        <!-- ================================== -->
+        <div id="scientist-view" class="page-view">
+             <div class="mx-auto max-w-5xl text-left">
+                <button class="back-btn mb-12 text-violet-400 font-bold">&larr; Back to All Missions</button>
+                <div class="flex items-center gap-4 animate-fade-in-up">
+                    <div class="bg-violet-900/50 p-3 rounded-lg border border-violet-700"><svg class="w-12 h-12 text-violet-300" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m_6.75 12_0_0_i_3_3m-3-3h.008v.008h-.008v-.008Z" /></svg></div>
+                    <h1 class="text-4xl font-black tracking-tight text-white sm:text-6xl">Mission: The Scientist</h1>
+                </div>
+                <p class="mt-6 text-lg leading-8 text-gray-400 animate-fade-in-up" style="animation-delay: 0.1s;">The goal is to actively maintain a "Failure List" of tasks AI can't do, and re-test them with every new model release. This makes you the first to know when the impossible becomes possible.</p>
+                
+                <div class="mt-16 space-y-12">
+                    <div class="animate-fade-in-up" style="animation-delay: 0.2s;">
+                        <h3 class="text-2xl font-bold text-white">Technique: Leverage Large Context Windows</h3>
+                        <p class="mt-2 text-gray-400">Modern models can read and reason over hundreds of pages of text at once. Use this to your advantage by uploading large, complex documents and asking for high-level analysis.</p>
+                    </div>
+                    <div class="animate-fade-in-up" style="animation-delay: 0.3s;">
+                        <h3 class="text-2xl font-bold text-white">Example for <span class="gradient-text">SuperWill</span></h3>
+                        <div class="mt-4 p-4 rounded-lg prompt-block text-sm">
+                            <p class="text-gray-400">// Try this in <a href="https://aistudio.google.com/" target="_blank" class="text-sky-400 underline">Google AI Studio</a></p>
+                            <p class="mt-2 text-white">"I've uploaded a dense 200-page legal document regarding probate law. Act as a senior legal counsel for **SuperWill**. Read the entire document and identify the top five most unusual or potentially exploitable clauses for our company. Explain each one simply."</p>
+                        </div>
+                    </div>
+                    <div class="animate-fade-in-up" style="animation-delay: 0.4s;">
+                        <h3 class="text-2xl font-bold text-white">Example for <span class="gradient-text">BioAdmin</span></h3>
+                        <div class="mt-4 p-4 rounded-lg prompt-block text-sm">
+                            <p class="text-gray-400">// Try this in <a href="https://aistudio.google.com/" target="_blank" class="text-sky-400 underline">Google AI Studio</a></p>
+                            <p class="mt-2 text-white">"I have uploaded a CSV file containing anonymized patient symptom data. Act as a medical data analyst for **BioAdmin**. Analyze this data and identify any potential correlations or patterns between symptoms that might indicate a common underlying issue. Present your findings as a series of clear, testable hypotheses."</p>
+                        </div>
+                    </div>
+                     <div class="animate-fade-in-up" style="animation-delay: 0.5s;">
+                        <h3 class="text-2xl font-bold text-white">Pro-Tip: The "What If" Prompt</h3>
+                        <p class="mt-2 text-gray-400">Push the AI's creative and strategic limits by asking speculative questions. This is great for exploring new venture ideas. "What if we combined the business model of **Unhire** with the haptic technology of **Proxina**? What would be three potential product ideas for that merged company?"</p>
+                    </div>
+                    <div class="animate-fade-in-up" style="animation-delay: 0.6s;">
+                        <h3 class="text-2xl font-bold text-white">Pro-Tip: Specify the Output Format for Analysis</h3>
+                        <p class="mt-2 text-gray-400">When asking for data analysis, tell the AI exactly how to format the output. This makes the information immediately usable. "Analyze the uploaded user feedback for **Cheaper** and return a JSON object with three keys: 'positive_themes', 'negative_themes', and 'feature_requests'."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ================================== -->
+        <!-- Artist View (Detail Page)          -->
+        <!-- ================================== -->
+        <div id="artist-view" class="page-view">
+            <div class="mx-auto max-w-5xl text-left">
+                <button class="back-btn mb-12 text-violet-400 font-bold">&larr; Back to All Missions</button>
+                <div class="flex items-center gap-4 animate-fade-in-up">
+                    <div class="bg-violet-900/50 p-3 rounded-lg border border-violet-700"><svg class="w-12 h-12 text-violet-300" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09Z" /></svg></div>
+                    <h1 class="text-4xl font-black tracking-tight text-white sm:text-6xl">Mission: The Artist</h1>
+                </div>
+                <p class="mt-6 text-lg leading-8 text-gray-400 animate-fade-in-up" style="animation-delay: 0.1s;">The goal is to move from being a "requester" of creative work to a "director" of it. This empowers you to visualize your ideas instantly, allowing you to provide a much better brief to a professional designer later.</p>
+                
+                <div class="mt-16 space-y-12">
+                    <div class="animate-fade-in-up" style="animation-delay: 0.2s;">
+                        <h3 class="text-2xl font-bold text-white">Technique: Descriptive Prompting</h3>
+                        <p class="mt-2 text-gray-400">Don't just name a subject. Describe the style, mood, lighting, and composition. The more descriptive you are, the closer you'll get to your vision.</p>
+                    </div>
+                    <div class="animate-fade-in-up" style="animation-delay: 0.3s;">
+                        <h3 class="text-2xl font-bold text-white">Example for <span class="gradient-text">Kwiks</span></h3>
+                        <div class="mt-4 p-4 rounded-lg prompt-block text-sm">
+                            <p class="text-gray-400">// Try this in <a href="https://leonardo.ai/" target="_blank" class="text-sky-400 underline">Leonardo.Ai</a></p>
+                            <p class="mt-2 text-white">"A modern, minimalist logo for a social video sharing app called **Kwiks**. The design should feature a stylized 'K' that subtly incorporates a play button icon. The color scheme should be vibrant purple and white. Clean, vector style, on a black background."</p>
+                        </div>
+                    </div>
+                    <div class="animate-fade-in-up" style="animation-delay: 0.4s;">
+                        <h3 class="text-2xl font-bold text-white">Example for <span class="gradient-text">Elaview</span></h3>
+                        <div class="mt-4 p-4 rounded-lg prompt-block text-sm">
+                            <p class="text-gray-400">// Try this in <a href="https://designer.microsoft.com/" target="_blank" class="text-sky-400 underline">Microsoft Designer</a></p>
+                            <p class="mt-2 text-white">"A photorealistic image for a billboard ad for our venture, **Elaview**. A smiling small business owner is standing in front of her coffee shop. She is pointing up at a digital billboard above her store that shows *her own advertisement*. The style should be bright, optimistic, and cinematic, with warm, golden hour lighting."</p>
+                        </div>
+                    </div>
+                     <div class="animate-fade-in-up" style="animation-delay: 0.5s;">
+                        <h3 class="text-2xl font-bold text-white">Pro-Tip: Iterate with Negative Prompts</h3>
+                        <p class="mt-2 text-gray-400">Most image generators allow "negative prompts" to tell the AI what to avoid. If your images have weird hands or too much text, add a negative prompt like `--no deformed hands, text, words` to clean up the result.</p>
+                    </div>
+                    <div class="animate-fade-in-up" style="animation-delay: 0.6s;">
+                        <h3 class="text-2xl font-bold text-white">Pro-Tip: Use AI for Mood Boarding</h3>
+                        <p class="mt-2 text-gray-400">Before you brief a designer, generate 5-10 different styles for the same concept. Try adding keywords like "cinematic," "flat vector," "cyberpunk," "90s retro," or "claymation" to your prompt. This helps you communicate your visual direction much more effectively.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const pageViews = document.querySelectorAll('.page-view');
+        const missionCards = document.querySelectorAll('.mission-card');
+        const backButtons = document.querySelectorAll('.back-btn');
+
+        function showPage(pageId) {
+            pageViews.forEach(page => {
+                page.classList.remove('active');
+            });
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+                window.scrollTo(0, 0);
+            }
+        }
+
+        missionCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const targetId = card.dataset.target;
+                showPage(targetId);
+            });
+        });
+
+        backButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                showPage('main-view');
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
+
